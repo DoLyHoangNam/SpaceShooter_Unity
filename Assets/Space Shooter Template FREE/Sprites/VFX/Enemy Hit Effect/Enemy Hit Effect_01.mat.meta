@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 12d55130dedd36e469dd547e3a836b83
+timeCreated: 1510279432
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107260
+  packageName: Space Shooter FREE
+  packageVersion: 1.0
+  assetPath: Assets/Space Shooter Template FREE/Sprites/VFX/Enemy Hit Effect/Enemy
+    Hit Effect_01.mat
+  uploadId: 218651

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 97cbb94a2e3a8f04184c0658c07a9da5
+timeCreated: 1508583423
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107260
+  packageName: Space Shooter FREE
+  packageVersion: 1.0
+  assetPath: Assets/Space Shooter Template FREE/Scripts/Bonus.cs
+  uploadId: 218651

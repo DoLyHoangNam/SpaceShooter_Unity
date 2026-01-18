@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a3169ac311c79f344a86ff84eab7e117
+timeCreated: 1510364885
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107260
+  packageName: Space Shooter FREE
+  packageVersion: 1.0
+  assetPath: Assets/Space Shooter Template FREE/Prefabs/VFX/Right_Gun.prefab
+  uploadId: 218651

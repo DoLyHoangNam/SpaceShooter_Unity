@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b7501b71cacf94e468954ef16fba6b47
+timeCreated: 1507911689
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107260
+  packageName: Space Shooter FREE
+  packageVersion: 1.0
+  assetPath: Assets/Space Shooter Template FREE/Sprites/VFX/Explosions/Small Explosion_01_Smoke_02_PC.mat
+  uploadId: 218651

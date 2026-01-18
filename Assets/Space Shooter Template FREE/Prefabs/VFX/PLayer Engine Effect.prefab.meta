@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 82f253063d03bde448e79c0e1d58a78b
+timeCreated: 1510364793
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107260
+  packageName: Space Shooter FREE
+  packageVersion: 1.0
+  assetPath: Assets/Space Shooter Template FREE/Prefabs/VFX/PLayer Engine Effect.prefab
+  uploadId: 218651

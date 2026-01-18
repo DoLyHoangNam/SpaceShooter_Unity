@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4fa12924968c51a4fbf7f67f630db413
+timeCreated: 1506884540
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107260
+  packageName: Space Shooter FREE
+  packageVersion: 1.0
+  assetPath: Assets/Space Shooter Template FREE/Sprites/VFX/Muzzle/Muzzle.mat
+  uploadId: 218651

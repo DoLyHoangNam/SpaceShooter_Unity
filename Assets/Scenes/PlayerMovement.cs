@@ -2,26 +2,29 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 30f;
-    public GameObject laserPrefab; 
+    public GameObject laserPrefab; // Ô này bạn đã kéo đạn vào rồi, cứ giữ nguyên
+    public float moveSpeed = 10f;
 
     void Update()
     {
-        // 1. DI CHUYỂN
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(h, v, 0);
-        transform.position += direction.normalized * moveSpeed * Time.deltaTime;
+        // 1. DI CHUYỂN THEO CHUỘT
+        // Lấy vị trí chuột trong không gian màn hình và chuyển sang không gian thế giới (World Point)
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Đảm bảo tàu không bị bay mất theo trục Z
 
-        // 2. GIỚI HẠN BIÊN
-        float xPos = Mathf.Clamp(transform.position.x, -8.5f, 8.5f);
-        float yPos = Mathf.Clamp(transform.position.y, -4.5f, 4.5f);
-        transform.position = new Vector3(xPos, yPos, 0);
+        // Di chuyển tàu mượt mà tới vị trí chuột
+        transform.position = Vector2.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
 
-        // 3. BẮN ĐẠN
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 2. CLICK CHUỘT TRÁI ĐỂ BẮN (0 là chuột trái, 1 là chuột phải)
+        if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(laserPrefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
+            Shoot();
         }
+    }
+
+    void Shoot()
+    {
+        // Tạo viên đạn tại vị trí của tàu
+        Instantiate(laserPrefab, transform.position, Quaternion.identity);
     }
 }

@@ -1,19 +1,33 @@
 using UnityEngine;
+using System.Collections;
 
-public class Blinking : MonoBehaviour
+public class BlinkingEffect : MonoBehaviour
 {
+    // Khoảng thời gian giữa mỗi lần bật/tắt (giây)
+    public float blinkInterval = 0.2f;
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        // Lấy thành phần hình ảnh của đối tượng
+        // Lấy thành phần Sprite Renderer từ đối tượng
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        // Bắt đầu vòng lặp nhấp nháy
+        if (spriteRenderer != null)
+        {
+            StartCoroutine(BlinkRoutine());
+        }
     }
 
-    void Update()
+    IEnumerator BlinkRoutine()
     {
-        // Đảo ngược trạng thái hiển thị: Đang hiện thì ẩn, đang ẩn thì hiện
-        // Điều này tạo ra hiệu ứng nhấp nháy
-        spriteRenderer.enabled = !spriteRenderer.enabled;
+        while (true)
+        {
+            // Đảo ngược trạng thái hiển thị của Sprite
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            
+            // Đợi một khoảng thời gian rồi lặp lại
+            yield return new WaitForSeconds(blinkInterval);
+        }
     }
 }

@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c9d5ede9d608d4590118a4301403c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 30
   laserPrefab: {fileID: 0}
+  moveSpeed: 30
 --- !u!61 &-8458098720050309076
 BoxCollider2D:
   m_ObjectHideFlags: 0

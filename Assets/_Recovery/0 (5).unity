@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_straight_projectile
       objectReference: {fileID: 0}
-    - target: {fileID: 1373690366928948, guid: fdaaab53a8b4c0143b19d2a2e4007e44, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4073124609858142, guid: fdaaab53a8b4c0143b19d2a2e4007e44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.531112
@@ -197,7 +193,7 @@ GameObject:
   - component: {fileID: 627638448}
   - component: {fileID: 627638447}
   - component: {fileID: 627638446}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Engine_01_Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,8 +497,7 @@ GameObject:
   - component: {fileID: 859774836}
   - component: {fileID: 859774837}
   - component: {fileID: 859774838}
-  - component: {fileID: 859774839}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Short-Lazer-Ship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -665,10 +660,18 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 0}, m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro, m_MethodName: set_text, m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &859774838
 Rigidbody2D:
   serializedVersion: 5
@@ -696,21 +699,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &859774839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859774830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e24f2f27461f8949aab2a302f7bd755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  health: 5
-  explosionPrefab: {fileID: 1587261729604890, guid: 600ec83cba1cec448bf41a6607229741,
-    type: 3}
 --- !u!1 &1009193014
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +802,7 @@ GameObject:
   - component: {fileID: 1460691760}
   - component: {fileID: 1460691759}
   - component: {fileID: 1460691758}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1092,10 +1080,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_straight_projectile (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1373690366928948, guid: fdaaab53a8b4c0143b19d2a2e4007e44, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4073124609858142, guid: fdaaab53a8b4c0143b19d2a2e4007e44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.238878
@@ -1157,7 +1141,7 @@ GameObject:
   - component: {fileID: 1977864648}
   - component: {fileID: 1977864650}
   - component: {fileID: 1977864649}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: flames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,16 +1395,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser
-      objectReference: {fileID: 0}
-    - target: {fileID: 9154612361585680500, guid: e04647a58085bed4a83f0c24f9b5b453,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9154612361585680500, guid: e04647a58085bed4a83f0c24f9b5b453,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

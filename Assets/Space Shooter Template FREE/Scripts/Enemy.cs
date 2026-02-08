@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
     #region FIELDS
     [Header("Movement Settings")]
-    public float speed = 5f; // Thêm tốc độ di chuyển
+    public float speed = 5f; 
 
     [Header("Enemy Stats")]
-    public int health = 1;
-
+    public int health = 3; // Nâng lên 3 máu theo Part 4
+    
     [Tooltip("Enemy's projectile prefab")]
     public GameObject Projectile;
 
@@ -27,13 +25,10 @@ public class Enemy : MonoBehaviour {
         Invoke("ActivateShooting", Random.Range(shotTimeMin, shotTimeMax));
     }
 
-    // --- ĐÂY LÀ PHẦN QUAN TRỌNG ĐỂ KẺ ĐỊCH BAY XUỐNG ---
     void Update()
     {
-        // Di chuyển xuống dưới
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        // Tự hủy khi rơi quá thấp
         if (transform.position.y < -7f)
         {
             Destroy(gameObject);
@@ -44,37 +39,45 @@ public class Enemy : MonoBehaviour {
     {
         if (Projectile != null && Random.value < (float)shotChance / 100)
         {                        
-            Instantiate(Projectile, gameObject.transform.position, Quaternion.identity);             
+            Instantiate(Projectile, transform.position, Quaternion.identity);             
         }
     }
 
+    // Hàm này giữ nguyên, dùng để nhận sát thương
     public void GetDamage(int damage) 
     {
         health -= damage;
         if (health <= 0)
             Destruction();
-        else
+        else if (hitEffect != null)
             Instantiate(hitEffect, transform.position, Quaternion.identity, transform);
     }    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Khi đạn của người chơi bắn trúng kẻ địch
-        if (collision.tag == "Laser") // Hãy đảm bảo bạn đã đặt Tag cho Laser là "Laser"
+        // 1. Nếu trúng đạn của Player
+        if (collision.CompareTag("Laser")) 
         {
             GetDamage(1);
-            Destroy(collision.gameObject); // Phá hủy viên đạn khi trúng địch
+            Destroy(collision.gameObject); 
         }
 
-        // Khi kẻ địch đâm vào người chơi
-        if (collision.tag == "Player")
+        // 2. Nếu ĐÂM trúng Player (Đây là phần quan trọng của Part 4)
+        if (collision.CompareTag("Player"))
         {
-            // Tạm thời cho người chơi mất máu hoặc nổ luôn
+            // Tìm script máu của người chơi
+            PlayerHealth player = collision.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                player.TakeDamage(1); // Gây sát thương cho người chơi
+            }
+            
+            // Kẻ địch tông xong cũng nổ luôn
             Destruction();
         }
     }
 
-    void Destruction()                           
+    void Destruction()                         
     {        
         if (destructionVFX != null) 
             Instantiate(destructionVFX, transform.position, Quaternion.identity); 

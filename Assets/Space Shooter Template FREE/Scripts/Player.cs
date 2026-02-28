@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// This script defines which sprite the 'Player" uses and its health.
-/// </summary>
-
 public class Player : MonoBehaviour
 {
     public GameObject destructionFX;
+
+    // LỖI 1: Thiếu dòng này. Phải khai báo biến để Unity biết chỗ mà kéo cái Panel vào.
+    public GameObject gameOverPanel; 
 
     public static Player instance; 
 
@@ -19,32 +18,25 @@ public class Player : MonoBehaviour
             instance = this;
     }
 
-    //method for damage proceccing by 'Player'
     public void GetDamage(int damage)   
     {
         Destruction();
     }    
 
-    //'Player's' destruction procedure
     void Destruction()
     {
-        Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect and destroying the 'Player' object
+        Instantiate(destructionFX, transform.position, Quaternion.identity); 
+        
+        // Kiểm tra xem script PlayerMoving có tồn tại không để tắt điều khiển
+        if (PlayerMoving.instance != null) {
+            PlayerMoving.instance.DisableControl();
+        }
+
+        // Hiện bảng Game Over
+        if (gameOverPanel != null) {
+            gameOverPanel.SetActive(true);
+        }
+
         Destroy(gameObject);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

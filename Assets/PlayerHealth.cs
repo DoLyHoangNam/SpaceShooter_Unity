@@ -1,14 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI; // QUAN TRỌNG: Phải có dòng này để dùng được Slider
+using UnityEngine.UI;
+using System; // BẮT BUỘC: Thêm dòng này để dùng được Action
 
 public class PlayerHealth : MonoBehaviour 
 {
     public int health = 5;
-    public Slider healthSlider; // Ô để kéo thanh Slider vào
+    public Slider healthSlider; 
     public GameObject explosionPrefab;
 
+    // THÊM DÒNG NÀY (Theo trang 4 của Demo 6):
+    // Đây là "sự kiện" để thông báo cho BattleFlow biết khi bạn chết
+    public Action onDead; 
+
     void Start() {
-        // Lúc bắt đầu game, đặt thanh máu đầy
         if (healthSlider != null) {
             healthSlider.maxValue = health;
             healthSlider.value = health;
@@ -18,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage) {
         health -= damage;
         
-        // Cập nhật thanh máu trên màn hình
         if (healthSlider != null) {
             healthSlider.value = health;
         }
@@ -34,6 +37,11 @@ public class PlayerHealth : MonoBehaviour
         if (explosionPrefab != null) {
             Instantiate(explosionPrefab, transform.position, transform.rotation);
         }
+
+        // THÊM DÒNG NÀY (Theo trang 4 của Demo 6):
+        // Phát tín hiệu "Tôi đã chết rồi!"
+        onDead?.Invoke();
+
         Destroy(gameObject);
         Debug.Log("GAME OVER!");
     }
